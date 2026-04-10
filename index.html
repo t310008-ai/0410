@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人學習歷程檔案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; background-color: #f8fafc; }
+        .subject-card { cursor: pointer; transition: transform 0.3s ease; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -2px; left: 0; background-color: #3b82f6; transition: width 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+        /* 隱藏所有科目詳情頁面，點擊後才顯示 */
+        .content-section { display: none; }
+        .active-section { display: block; }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="text-xl font-bold text-blue-600">My Portfolio</div>
+            <ul class="flex space-x-6">
+                <li><a href="#" onclick="showSection('home')" class="nav-link font-medium text-gray-700">首頁</a></li>
+                <li class="relative group">
+                    <a href="#" class="nav-link font-medium text-gray-700">科目分類 ▼</a>
+                    <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 py-2 w-48 rounded-lg">
+                        <div class="grid grid-cols-1 text-sm text-gray-600">
+                            <a href="#" onclick="showSection('chinese')" class="px-4 py-2 hover:bg-blue-50">國文</a>
+                            <a href="#" onclick="showSection('english')" class="px-4 py-2 hover:bg-blue-50">英文</a>
+                            <a href="#" onclick="showSection('math')" class="px-4 py-2 hover:bg-blue-50">數學</a>
+                            <a href="#" onclick="showSection('physics')" class="px-4 py-2 hover:bg-blue-50">物理</a>
+                            <a href="#" onclick="showSection('chemistry')" class="px-4 py-2 hover:bg-blue-50">化學</a>
+                            <a href="#" onclick="showSection('biology')" class="px-4 py-2 hover:bg-blue-50">生物</a>
+                            <a href="#" onclick="showSection('geography')" class="px-4 py-2 hover:bg-blue-50">地理</a>
+                            <a href="#" onclick="showSection('history')" class="px-4 py-2 hover:bg-blue-50">歷史</a>
+                            <a href="#" onclick="showSection('civics')" class="px-4 py-2 hover:bg-blue-50">公民</a>
+                            <hr class="my-1">
+                            <a href="#" onclick="showSection('elective')" class="px-4 py-2 hover:bg-blue-50 font-bold text-blue-500">選修科目</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 max-w-6xl mx-auto px-4">
+        
+        <section id="home" class="content-section active-section">
+            <div class="text-center py-20">
+                <h1 class="text-5xl font-extrabold text-gray-900 mb-6" id="main-title">探索與成長：我的學習歷程</h1>
+                <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    你好！我是 [你的名字]，就讀於 [你的學校]。這份檔案記錄了我高一到高三在各領域的探索過程，從基礎必修到深化的選修課程，展現我不斷挑戰自我、跨域思考的足跡。
+                </p>
+                <div class="flex justify-center gap-4">
+                    <button onclick="showSection('chinese')" class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-700 transition">開始探索科目</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="chinese" class="content-section">
+            <h2 class="text-3xl font-bold mb-8 border-l-4 border-blue-500 pl-4">國文科學習成果</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="subject-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl">
+                    <span class="text-blue-500 font-bold">高一</span>
+                    <h3 class="text-xl font-bold mt-2">現代文學評論</h3>
+                    <p class="text-gray-500 mt-2 text-sm">探討徐志摩詩集中的意象運用...</p>
+                    <button class="mt-4 text-blue-600 font-medium">查看完整檔案 →</button>
+                </div>
+                <div class="subject-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl">
+                    <span class="text-blue-500 font-bold">高二</span>
+                    <h3 class="text-xl font-bold mt-2">古文觀止專題</h3>
+                    <p class="text-gray-500 mt-2 text-sm">以現代視角重新解讀《赤壁賦》...</p>
+                    <button class="mt-4 text-blue-600 font-medium">查看完整檔案 →</button>
+                </div>
+                <div class="subject-card bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl">
+                    <span class="text-blue-500 font-bold">高三</span>
+                    <h3 class="text-xl font-bold mt-2">自主學習成果</h3>
+                    <p class="text-gray-500 mt-2 text-sm">跨媒介敘事研究...</p>
+                    <button class="mt-4 text-blue-600 font-medium">查看完整檔案 →</button>
+                </div>
+            </div>
+            <button onclick="showSection('home')" class="mt-12 text-gray-400 hover:text-gray-600">← 返回首頁</button>
+        </section>
+
+        <section id="math" class="content-section">
+            <h2 class="text-3xl font-bold mb-8 border-l-4 border-red-500 pl-4">數學科學習成果</h2>
+            <p class="text-gray-500">（此處放入高一至高三數學相關成果...）</p>
+            <button onclick="showSection('home')" class="mt-12 text-gray-400 hover:text-gray-600">← 返回首頁</button>
+        </section>
+
+    </main>
+
+    <script>
+        // 切換頁面邏輯
+        function showSection(sectionId) {
+            // 隱藏所有區域
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active-section');
+            });
+
+            // 顯示目標區域
+            const target = document.getElementById(sectionId);
+            if(target) {
+                target.classList.add('active-section');
+                
+                // 觸發 GSAP 彈動動畫
+                gsap.from(target, {
+                    duration: 0.8,
+                    y: 50,
+                    opacity: 0,
+                    ease: "back.out(1.7)", // 這是關鍵的彈動效果
+                });
+            }
+
+            // 自動捲動到頂部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 初始首頁動畫
+        window.onload = () => {
+            gsap.from("#main-title", {
+                duration: 1.2,
+                y: -100,
+                opacity: 0,
+                ease: "bounce.out" // 標題掉落彈動效果
+            });
+        };
+    </script>
+</body>
+</html>
